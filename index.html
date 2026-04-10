@@ -1,0 +1,654 @@
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+#gt-site *, #gt-site *::before, #gt-site *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+#gt-site {
+  --bg: #0f0620;
+  --bg2: #1a0a2e;
+  --bg3: #2d1152;
+  --gold: #c9a84c;
+  --gold-light: #f5e9c8;
+  --muted: #9b8ab0;
+  background: #0f0620;
+  color: #f5e9c8;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+#gt-site a { text-decoration: none; }
+
+/* NAV */
+#gt-site .c-nav {
+  position: sticky;
+  top: 0; left: 0; right: 0;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 40px;
+  background: rgba(15,6,32,0.96);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+#gt-site .c-nav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 600;
+  color: #f5e9c8;
+  letter-spacing: 0.06em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+#gt-site .c-nav-links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  list-style: none;
+}
+#gt-site .c-nav-links a {
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #9b8ab0;
+  transition: color 0.2s;
+}
+#gt-site .c-nav-links a:hover { color: #c9a84c; }
+#gt-site .c-nav-btn {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  background: #c9a84c;
+  color: #0f0620 !important;
+  padding: 10px 22px;
+  border-radius: 2px;
+}
+
+/* HERO */
+#gt-site .c-hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 100px 32px 60px;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 50% 50%, rgba(74,26,114,0.35) 0%, transparent 65%),
+    repeating-linear-gradient(rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 80px),
+    repeating-linear-gradient(90deg, rgba(201,168,76,0.03) 0px, rgba(201,168,76,0.03) 1px, transparent 1px, transparent 80px),
+    #0f0620;
+}
+#gt-site .c-eyebrow {
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  margin-bottom: 28px;
+}
+#gt-site .c-hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 9vw, 100px);
+  font-weight: 600;
+  color: #f5e9c8;
+  letter-spacing: 0.08em;
+  line-height: 1.02;
+  margin-bottom: 6px;
+}
+#gt-site .c-rule {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  margin: 22px 0;
+}
+#gt-site .c-rule-line { width: 90px; height: 1px; background: #c9a84c; opacity: 0.5; }
+#gt-site .c-rule-diamond { width: 7px; height: 7px; background: #c9a84c; transform: rotate(45deg); }
+#gt-site .c-tagline-small {
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: #c9a84c;
+}
+#gt-site .c-hero-sub {
+  font-size: 17px;
+  font-weight: 300;
+  color: #9b8ab0;
+  max-width: 480px;
+  margin: 32px auto 44px;
+  line-height: 1.8;
+}
+#gt-site .c-hero-sub em {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: #f5e9c8;
+}
+#gt-site .c-btn-row { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+#gt-site .c-btn-primary {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: #c9a84c;
+  color: #0f0620;
+  padding: 14px 36px;
+  border-radius: 2px;
+  display: inline-block;
+  transition: opacity 0.2s;
+}
+#gt-site .c-btn-primary:hover { opacity: 0.85; }
+#gt-site .c-btn-ghost {
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  border: 1px solid rgba(201,168,76,0.4);
+  padding: 14px 36px;
+  border-radius: 2px;
+  display: inline-block;
+}
+#gt-site .c-btn-ghost:hover { background: rgba(201,168,76,0.07); }
+
+/* STATS */
+#gt-site .c-stats {
+  display: flex;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(201,168,76,0.12);
+  border-bottom: 1px solid rgba(201,168,76,0.12);
+  background: rgba(26,10,46,0.7);
+}
+#gt-site .c-stat {
+  flex: 1;
+  min-width: 150px;
+  padding: 36px 24px;
+  text-align: center;
+  border-right: 1px solid rgba(201,168,76,0.12);
+}
+#gt-site .c-stat:last-child { border-right: none; }
+#gt-site .c-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  font-weight: 600;
+  color: #c9a84c;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+#gt-site .c-stat-label {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9b8ab0;
+}
+
+/* SECTIONS */
+#gt-site .c-section {
+  padding: 80px 40px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+#gt-site .c-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 5vw, 52px);
+  font-weight: 600;
+  color: #f5e9c8;
+  letter-spacing: 0.04em;
+  line-height: 1.1;
+  margin-bottom: 16px;
+}
+#gt-site .c-section-title em { color: #c9a84c; font-style: italic; }
+#gt-site .c-section-body {
+  font-size: 15px;
+  font-weight: 300;
+  color: #9b8ab0;
+  max-width: 520px;
+  line-height: 1.8;
+  margin-bottom: 52px;
+}
+
+/* CARDS */
+#gt-site .c-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1px;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.12);
+}
+#gt-site .c-card {
+  background: #1a0a2e;
+  padding: 40px 32px;
+  position: relative;
+  overflow: hidden;
+  transition: background 0.3s;
+}
+#gt-site .c-card:hover { background: #1f0d38; }
+#gt-site .c-card-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 56px;
+  font-weight: 600;
+  color: rgba(201,168,76,0.1);
+  line-height: 1;
+  margin-bottom: 20px;
+}
+#gt-site .c-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: #f5e9c8;
+  margin-bottom: 10px;
+}
+#gt-site .c-card-body { font-size: 13px; font-weight: 300; color: #9b8ab0; line-height: 1.75; }
+#gt-site .c-card-bar {
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 0; height: 2px;
+  background: #c9a84c;
+  transition: width 0.4s ease;
+}
+#gt-site .c-card:hover .c-card-bar { width: 100%; }
+
+/* ROLES SECTION */
+#gt-site .c-roles-section {
+  background: rgba(26,10,46,0.5);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 80px 40px;
+}
+#gt-site .c-roles-inner { max-width: 1100px; margin: 0 auto; }
+
+/* TAGS */
+#gt-site .c-tags { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 36px; }
+#gt-site .c-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c9a84c;
+  border: 1px solid rgba(201,168,76,0.28);
+  padding: 8px 16px;
+  border-radius: 2px;
+}
+
+/* PROCESS */
+#gt-site .c-process {
+  background: rgba(26,10,46,0.4);
+  border-top: 1px solid rgba(201,168,76,0.1);
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  padding: 80px 40px;
+}
+#gt-site .c-process-inner { max-width: 1100px; margin: 0 auto; }
+#gt-site .c-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px;
+  margin-top: 52px;
+}
+#gt-site .c-step { position: relative; }
+#gt-site .c-step-circle {
+  width: 38px; height: 38px;
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+  font-weight: 600;
+  color: #c9a84c;
+  margin-bottom: 18px;
+}
+#gt-site .c-step-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19px;
+  font-weight: 600;
+  color: #f5e9c8;
+  margin-bottom: 8px;
+}
+#gt-site .c-step-body { font-size: 13px; font-weight: 300; color: #9b8ab0; line-height: 1.75; }
+
+/* TESTIMONIAL */
+#gt-site .c-testimonial {
+  text-align: center;
+  padding: 80px 40px;
+  max-width: 780px;
+  margin: 0 auto;
+}
+#gt-site .c-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(20px, 3vw, 30px);
+  font-style: italic;
+  color: #f5e9c8;
+  line-height: 1.6;
+  margin-bottom: 28px;
+}
+#gt-site .c-quote-attr { font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: #9b8ab0; }
+#gt-site .c-quote-attr span { color: #c9a84c; }
+
+/* CTA / CONTACT */
+#gt-site .c-cta {
+  background: #2d1152;
+  border-top: 1px solid rgba(201,168,76,0.15);
+  text-align: center;
+  padding: 90px 40px;
+}
+#gt-site .c-cta-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(34px, 5vw, 58px);
+  font-weight: 600;
+  color: #f5e9c8;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+#gt-site .c-cta-sub { font-size: 15px; font-weight: 300; color: #9b8ab0; margin-bottom: 36px; }
+#gt-site .c-form { display: flex; flex-direction: column; gap: 14px; max-width: 480px; margin: 0 auto; }
+#gt-site .c-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+#gt-site .c-input {
+  width: 100%;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: #f5e9c8;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 300;
+  padding: 13px 16px;
+  border-radius: 2px;
+  outline: none;
+}
+#gt-site .c-input::placeholder { color: #9b8ab0; }
+#gt-site .c-input:focus { border-color: rgba(201,168,76,0.5); }
+#gt-site .c-textarea { resize: vertical; min-height: 110px; }
+#gt-site .c-form-btn {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: #c9a84c;
+  color: #0f0620;
+  border: none;
+  padding: 15px;
+  border-radius: 2px;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s;
+}
+#gt-site .c-form-btn:hover { opacity: 0.85; }
+
+/* FOOTER */
+#gt-site .c-footer {
+  padding: 36px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  border-top: 1px solid rgba(201,168,76,0.1);
+  background: #0f0620;
+}
+#gt-site .c-footer-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 18px;
+  font-weight: 600;
+  color: #f5e9c8;
+  letter-spacing: 0.06em;
+}
+#gt-site .c-footer-copy { font-size: 11px; font-weight: 300; color: #9b8ab0; }
+#gt-site .c-footer-links { display: flex; gap: 24px; list-style: none; }
+#gt-site .c-footer-links a {
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #9b8ab0;
+  transition: color 0.2s;
+}
+#gt-site .c-footer-links a:hover { color: #c9a84c; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  #gt-site .c-nav { padding: 16px 20px; }
+  #gt-site .c-nav-links li:not(:last-child) { display: none; }
+  #gt-site .c-cards { grid-template-columns: 1fr; }
+  #gt-site .c-steps { grid-template-columns: 1fr 1fr; }
+  #gt-site .c-section { padding: 60px 20px; }
+  #gt-site .c-form-row { grid-template-columns: 1fr; }
+  #gt-site .c-footer { flex-direction: column; align-items: center; text-align: center; }
+}
+</style>
+
+<div id="gt-site">
+
+<!-- NAV -->
+<nav class="c-nav">
+  <div class="c-nav-brand">
+    <svg width="28" height="28" viewBox="0 0 58 58">
+      <circle cx="29" cy="29" r="25" fill="none" stroke="#4a1a72" stroke-width="1.5"/>
+      <circle cx="29" cy="29" r="25" fill="none" stroke="#c9a84c" stroke-width="1" opacity="0.6"/>
+      <circle cx="29" cy="29" r="21" fill="none" stroke="#c9a84c" stroke-width="0.5" opacity="0.35"/>
+      <path d="M38 22C35.4 19.6 32.4 18.2 29 18.2C22.2 18.2 16.8 23.2 16.8 29C16.8 34.8 22.2 39.8 29 39.8C34.5 39.8 38.5 36.6 39.8 32H29.5V28H43.2V32C41.5 38.5 36 44 29 44C19.6 44 12 37.2 12 29C12 20.8 19.6 14 29 14C33.2 14 37 15.5 40 18Z" fill="#c9a84c"/>
+      <circle cx="29" cy="4.2" r="1.8" fill="#c9a84c" opacity="0.8"/>
+      <circle cx="29" cy="53.8" r="1.8" fill="#c9a84c" opacity="0.8"/>
+      <circle cx="4.2" cy="29" r="1.8" fill="#c9a84c" opacity="0.8"/>
+      <circle cx="53.8" cy="29" r="1.8" fill="#c9a84c" opacity="0.8"/>
+    </svg>
+    Gabriel Talent
+  </div>
+  <ul class="c-nav-links">
+    <li><a href="#gt-services">Services</a></li>
+    <li><a href="#gt-roles">Open Roles</a></li>
+    <li><a href="#gt-process">Process</a></li>
+    <li><a href="#gt-contact" class="c-nav-btn">Work With Me</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="c-hero">
+  <div class="c-eyebrow">Boutique Recruitment · Contract &amp; Direct Hire</div>
+  <svg width="80" height="80" viewBox="0 0 76 76" style="margin-bottom:24px">
+    <circle cx="38" cy="38" r="34" fill="none" stroke="#3d1260" stroke-width="3"/>
+    <circle cx="38" cy="38" r="34" fill="none" stroke="#c9a84c" stroke-width="1.2" opacity="0.55"/>
+    <circle cx="38" cy="38" r="28" fill="none" stroke="#c9a84c" stroke-width="0.6" opacity="0.3"/>
+    <path d="M50 28.5C46.8 25.4 43 23.5 38 23.5C29.2 23.5 22 30.1 22 38C22 45.9 29.2 52.5 38 52.5C44.8 52.5 50.2 48.5 52 42.5H38.5V37.5H57V42.5C54.8 50.8 47.2 57 38 57C26.4 57 17 48.4 17 38C17 27.6 26.4 19 38 19C43.5 19 48.4 21 52 24.5Z" fill="#c9a84c"/>
+    <circle cx="38" cy="3.5" r="2.2" fill="#c9a84c" opacity="0.8"/>
+    <circle cx="38" cy="72.5" r="2.2" fill="#c9a84c" opacity="0.8"/>
+    <circle cx="3.5" cy="38" r="2.2" fill="#c9a84c" opacity="0.8"/>
+    <circle cx="72.5" cy="38" r="2.2" fill="#c9a84c" opacity="0.8"/>
+  </svg>
+  <h1 class="c-hero-title">Gabriel Talent</h1>
+  <div class="c-rule">
+    <div class="c-rule-line"></div>
+    <div class="c-rule-diamond"></div>
+    <div class="c-rule-line"></div>
+  </div>
+  <div class="c-tagline-small">Talent Solutions</div>
+  <p class="c-hero-sub">
+    Boutique recruiting for companies that refuse to settle.<br>
+    <em>The right hire, placed right.</em>
+  </p>
+  <div class="c-btn-row">
+    <a href="#gt-contact" class="c-btn-primary">Hire With Me</a>
+    <a href="#gt-roles" class="c-btn-ghost">View Open Roles</a>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="c-stats">
+  <div class="c-stat">
+    <div class="c-stat-num">Boutique</div>
+    <div class="c-stat-label">Solo Recruiter, Full Attention</div>
+  </div>
+  <div class="c-stat">
+    <div class="c-stat-num">Both</div>
+    <div class="c-stat-label">Contract &amp; Direct Hire</div>
+  </div>
+  <div class="c-stat">
+    <div class="c-stat-num">6+</div>
+    <div class="c-stat-label">Years Recruiting Experience</div>
+  </div>
+  <div class="c-stat">
+    <div class="c-stat-num">Discreet</div>
+    <div class="c-stat-label">Confidential, Client-First Process</div>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section class="c-section" id="gt-services">
+  <div class="c-eyebrow">What I Do</div>
+  <h2 class="c-section-title">Two ways to work <em>together</em></h2>
+  <p class="c-section-body">Contract or direct hire — I find candidates your job post never will.</p>
+  <div class="c-cards">
+    <div class="c-card">
+      <div class="c-card-num">01</div>
+      <div class="c-card-title">Contract Placement</div>
+      <p class="c-card-body">W2 and 1099 contractors placed fast. Ideal for project-based work, team augmentation, or roles that need to move quickly. Specializing in data, engineering, and technical functions.</p>
+      <div class="c-card-bar"></div>
+    </div>
+    <div class="c-card">
+      <div class="c-card-num">02</div>
+      <div class="c-card-title">Direct Hire</div>
+      <p class="c-card-body">Full-cycle permanent recruitment. I source, screen, and deliver a curated shortlist of candidates who are genuinely excited about your role — not just chasing any offer.</p>
+      <div class="c-card-bar"></div>
+    </div>
+    <div class="c-card">
+      <div class="c-card-num">03</div>
+      <div class="c-card-title">Talent Advisory</div>
+      <p class="c-card-body">Need help with hiring strategy, job descriptions, or sourcing pipelines? I work with lean teams to build recruiting infrastructure before the search even begins.</p>
+      <div class="c-card-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- OPEN ROLES -->
+<div class="c-roles-section" id="gt-roles">
+  <div class="c-roles-inner">
+    <div class="c-eyebrow">Currently Placing</div>
+    <h2 class="c-section-title">Open <em>Roles</em></h2>
+    <p class="c-section-body" style="margin-bottom:0">Active searches updated regularly. Don't see your role? Reach out anyway.</p>
+    <div style="text-align:center; padding:56px 32px; border:1px dashed rgba(201,168,76,0.2); margin-top:40px;">
+      <div style="font-family:'Cormorant Garamond',serif; font-size:22px; color:#f5e9c8; margin-bottom:12px;">New roles posted regularly.</div>
+      <div style="font-size:13px; font-weight:300; color:#9b8ab0; margin-bottom:28px; line-height:1.8;">Don't see your role listed? Reach out directly — I work on searches that aren't always publicly posted.</div>
+      <a href="#gt-contact" class="c-btn-primary">Get In Touch</a>
+    </div>
+  </div>
+</div>
+
+<!-- SPECIALTIES -->
+<section class="c-section">
+  <div class="c-eyebrow">Specialties</div>
+  <h2 class="c-section-title">Roles I <em>place well</em></h2>
+  <div class="c-tags">
+    <span class="c-tag">Data Engineering</span>
+    <span class="c-tag">Analytics Engineering</span>
+    <span class="c-tag">Data Science</span>
+    <span class="c-tag">Software Engineering</span>
+    <span class="c-tag">Product Management</span>
+    <span class="c-tag">BI &amp; Reporting</span>
+    <span class="c-tag">Cloud Infrastructure</span>
+    <span class="c-tag">Machine Learning</span>
+    <span class="c-tag">Finance &amp; Accounting</span>
+    <span class="c-tag">Operations</span>
+    <span class="c-tag">Executive Search</span>
+    <span class="c-tag">Go-To-Market</span>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<div class="c-process" id="gt-process">
+  <div class="c-process-inner">
+    <div class="c-eyebrow">How It Works</div>
+    <h2 class="c-section-title">Fast, focused, <em>no résumé dumps</em></h2>
+    <div class="c-steps">
+      <div class="c-step">
+        <div class="c-step-circle">1</div>
+        <div class="c-step-title">Discovery Call</div>
+        <p class="c-step-body">I learn your team, culture, and the real requirements behind the role — not just the bullet points.</p>
+      </div>
+      <div class="c-step">
+        <div class="c-step-circle">2</div>
+        <div class="c-step-title">Active Sourcing</div>
+        <p class="c-step-body">Targeted boolean searches, network outreach, and AI-assisted sourcing across LinkedIn and beyond.</p>
+      </div>
+      <div class="c-step">
+        <div class="c-step-circle">3</div>
+        <div class="c-step-title">Curated Shortlist</div>
+        <p class="c-step-body">You receive a tight slate of pre-screened candidates. No résumé dumps. No wasted interviews.</p>
+      </div>
+      <div class="c-step">
+        <div class="c-step-circle">4</div>
+        <div class="c-step-title">Offer &amp; Close</div>
+        <p class="c-step-body">I stay in the deal through offer, negotiation, and onboarding so nothing falls apart at the finish line.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIAL -->
+<div style="background:rgba(26,10,46,0.4); border-top:1px solid rgba(201,168,76,0.1); border-bottom:1px solid rgba(201,168,76,0.1);">
+  <div class="c-testimonial">
+    <div class="c-rule" style="margin-bottom:36px">
+      <div class="c-rule-line"></div>
+      <div class="c-rule-diamond"></div>
+      <div class="c-rule-line"></div>
+    </div>
+    <p class="c-quote">"We'd been searching for three months on our own. Gabriel Talent sent us three candidates in a week — we hired two of them."</p>
+    <div class="c-quote-attr">— VP of Engineering, <span>Series B Fintech</span></div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<div class="c-cta" id="gt-contact">
+  <div class="c-eyebrow" style="margin-bottom:16px">Let's talk</div>
+  <h2 class="c-cta-title">Ready to find your<br>next great hire?</h2>
+  <p class="c-cta-sub">Contract or direct — I'll have candidates in front of you faster than you expect.</p>
+  <form class="c-form" action="https://formspree.io/f/xdapqnwr" method="POST">
+    <div class="c-form-row">
+      <input class="c-input" type="text" name="name" placeholder="Your name" required>
+      <input class="c-input" type="email" name="email" placeholder="Work email" required>
+    </div>
+    <input class="c-input" type="text" name="company" placeholder="Company name">
+    <select class="c-input" name="service" style="cursor:pointer; background:#2d1152">
+      <option value="" disabled selected>What are you looking for?</option>
+      <option>Contract Placement</option>
+      <option>Direct Hire</option>
+      <option>Both / Not Sure</option>
+      <option>I'm a Candidate</option>
+    </select>
+    <textarea class="c-input c-textarea" name="message" placeholder="Tell me about the role or what you're looking for..."></textarea>
+    <button type="submit" class="c-form-btn">Send Message</button>
+  </form>
+</div>
+
+<!-- FOOTER -->
+<footer class="c-footer">
+  <div class="c-footer-brand">Gabriel Talent</div>
+  <div class="c-footer-copy">© 2026 Gabriel Talent · Talent Solutions</div>
+  <ul class="c-footer-links">
+    <li><a href="#">LinkedIn</a></li>
+    <li><a href="#">Contra</a></li>
+    <li><a href="#gt-roles">Open Roles</a></li>
+    <li><a href="#gt-contact">Contact</a></li>
+  </ul>
+</footer>
+
+</div>
+
+<script>
+function gtHandleSubmit(e) {
+  e.preventDefault();
+  var btn = e.target.querySelector('.c-form-btn');
+  btn.textContent = 'Message Sent!';
+  btn.style.background = '#4a1a72';
+  btn.style.color = '#f5e9c8';
+  setTimeout(function() {
+    btn.textContent = 'Send Message';
+    btn.style.background = '';
+    btn.style.color = '';
+    e.target.reset();
+  }, 3000);
+}
+</script>
